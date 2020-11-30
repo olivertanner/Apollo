@@ -15,11 +15,15 @@ pipeline {
       }
     }
 
-    stage('Deploy') {
-      steps {
-        echo 'Deploy'
-      }
-    }
-
+    stage('deploy PROD') {
+               when {
+                  branch 'master'
+               }
+                steps{
+                  snDevOpsStep ()
+                   echo "deploy in prod"
+                  snDevOpsChange()              
+                }
+            }
   }
 }
