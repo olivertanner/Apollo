@@ -16,14 +16,15 @@ pipeline {
     }
 
     stage('deploy PROD') {
-               when {
-                  branch 'master'
-               }
-                steps{
-                  snDevOpsStep ()
-                   echo "deploy in prod"
-                  snDevOpsChange()              
-                }
-            }
+      when {
+        branch 'master'
+      }
+      steps {
+        echo 'deploy in prod'
+        snDevOpsStep(enabled: true, ignoreErrors: true)
+        snDevOpsChange(enabled: true, ignoreErrors: true)
+      }
+    }
+
   }
 }
