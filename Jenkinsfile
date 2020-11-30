@@ -15,10 +15,7 @@ pipeline {
       }
     }
 
-    stage('deploy PROD') {
-      when {
-        branch 'master'
-      }
+    stage('deploy') {
       steps {
         echo 'deploy in prod'
         snDevOpsStep(enabled: true, ignoreErrors: true)
