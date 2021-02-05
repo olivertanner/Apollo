@@ -4,7 +4,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Build'
-        snDevOpsStep(enabled:true,ignoreErrors:true)
+        snDevOpsStep(enabled:true,ignoreErrors:false)
         SWEAGLEUpload(actionName: 'uploadSettings', fileLocation: 'settings.properties', format: 'properties', nodePath: 'Apollo,Components,Files', filenameNodes: true, tag: '${BUILD_ID}')
       }
     }
