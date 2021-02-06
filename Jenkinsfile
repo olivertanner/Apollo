@@ -12,7 +12,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Test'
-        snDevOpsStep(enabled:true,ignoreErrors:true)
+        snDevOpsStep(enabled:true,ignoreErrors:false)
         SWEAGLEValidate(actionName: 'ValidateConfig', mdsName: 'Icarus', noPending: true, showResults: true, stored: true)
       }
     }
@@ -20,7 +20,7 @@ pipeline {
     stage('deploy') {
       steps {
         echo 'deploy in prod'
-        snDevOpsStep(enabled:true,ignoreErrors:true)
+        snDevOpsStep(enabled:true,ignoreErrors:false)
         snDevOpsChange()
       }
     }
