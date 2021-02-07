@@ -20,7 +20,7 @@ pipeline {
     stage('deploy') {
       steps {
         echo 'deploy in prod'
-        snDevOpsStep(enabled:true,ignoreErrors:false)
+        snDevOpsStep(enabled:true,ignoreErrors:true)
         snDevOpsChange()
       }
     }
