@@ -13,6 +13,7 @@ pipeline {
       steps {
         echo 'Test'
         snDevOpsStep(enabled:true,ignoreErrors:false)
+        snDevOpsChange()
         SWEAGLEValidate(actionName: 'ValidateConfig', mdsName: 'Icarus', noPending: true, showResults: true, stored: true)
       }
     }
